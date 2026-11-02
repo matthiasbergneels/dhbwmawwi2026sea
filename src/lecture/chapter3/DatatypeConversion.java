@@ -22,7 +22,7 @@ public class DatatypeConversion {
 
     // Explizites Type Casting
     // double -> int
-    numberB = 97.6;
+    numberB = 197.6;
     System.out.println(numberB);
     int numberC = (int) numberB;
     System.out.println(numberC);

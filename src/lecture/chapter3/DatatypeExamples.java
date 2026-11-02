@@ -7,6 +7,8 @@ public class DatatypeExamples {
     // Variablen Deklaration
     double numberA;
 
+    //System.out.println(numberA);
+
     // Variablen Initialisierung
     numberA = 5.45;
 
@@ -73,7 +75,7 @@ public class DatatypeExamples {
     System.out.println(numberA);
 
     // Float Literal
-    float numberH = 5.5f;
+    float numberH = 5.576f;
     System.out.println(numberH);
     numberH = 5.5e-2f;
     System.out.println(numberH);
