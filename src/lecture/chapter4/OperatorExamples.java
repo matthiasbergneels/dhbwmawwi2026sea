@@ -1,4 +1,4 @@
-package lecture;
+package lecture.chapter4;
 
 public class OperatorExamples {
 
