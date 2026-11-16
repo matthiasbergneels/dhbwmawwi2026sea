@@ -27,6 +27,15 @@ public class SwitchCaseExample {
         System.out.println("Ungültige Note");
     }
 
+    System.out.println("Nach neuer Syntax:");
+    switch(grade){
+      case 1 -> System.out.println("sehr gut");
+      case 2 -> System.out.println("gut");
+      case 3 -> System.out.println("befriedigend");
+      case 4 -> System.out.println("ausreichend");
+      case 5 -> System.out.println("mangelhaft");
+    }
+
     switch(grade){
       case 1:
       case 2:
@@ -39,15 +48,6 @@ public class SwitchCaseExample {
         break;
       default:
         System.out.println("Ungültige Note");
-    }
-
-    System.out.println("Nach neuer Syntax:");
-    switch(grade){
-      case 1 -> System.out.println("sehr gut");
-      case 2 -> System.out.println("gut");
-      case 3 -> System.out.println("befriedigend");
-      case 4 -> System.out.println("ausreichend");
-      case 5 -> System.out.println("mangelhaft");
     }
 
     switch(grade){
