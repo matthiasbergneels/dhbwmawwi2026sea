@@ -2,13 +2,42 @@ package lecture.chapter5;
 
 public class Car {
 
-  // Attribute
+  // Klassen-Attribute
+  private static int carCount;
+
+  public static final String COLOR_RED = "Rot";
+  public static final String COLOR_GREEN = "Grün";
+  public static final String COLOR_BLUE = "Blau";
+  public static final String COLOR_RUSTY = "Rusty Braun";
+  public static final String COLOR_BLACK_DEFAULT = "Schwarz";
+
+  // (Instanz-) Attribute
   private String color;
   private double currentSpeed;
   private String licensePlate;
   private int hp;
-  public final String brand;
+  public final Brands BRAND;
 
+  enum Brands {
+    CORVETTE("$$$"),
+    PORSCHE("$$$"),
+    HOOKER("$$$$"),
+    FIAT("$");
+
+    // Attribut
+    private String priceClass;
+
+    // Konstruktor
+    private Brands(String priceClass){
+      this.priceClass = priceClass;
+    }
+
+    // Getter
+    public String getPriceClass(){
+      return priceClass;
+    }
+
+  }
 
   // Konstruktor
 
@@ -16,18 +45,20 @@ public class Car {
     this.color = "Grün";
     setHp(120);
     this.licensePlate = "YYYYYY";
-    this.brand = "FIAT";
+    this.BRAND = Brands.FIAT;
 
     this.currentSpeed = 0;
+    carCount++;
   }
 
-  Car(String color, String licensePlate, int hp, String brand){
+  Car(String color, String licensePlate, int hp, Brands brand){
     this.color = color;
     this.licensePlate = licensePlate;
     this.setHp(hp);
-    this.brand = brand;
+    this.BRAND = brand;
 
     this.currentSpeed = 0;
+    carCount++;
   }
 
   // Methoden
@@ -72,6 +103,33 @@ public class Car {
       this.hp = 120;
     }
   }
+
+  public void setColor(String color) {
+    if(color.equals(COLOR_RED) || color.equals(COLOR_BLUE) || color.equals(COLOR_RUSTY) || color.equals(COLOR_BLACK_DEFAULT)){
+      this.color = color;
+    } else {
+      if(this.color == null){
+        this.color = COLOR_BLACK_DEFAULT;
+      }
+    }
+
+  }
+
+  public void setLicensePlate(String licensePlate) {
+    this.licensePlate = licensePlate;
+  }
+
+  protected void finalize(){
+    System.out.println("Auto von der Marke " + this.BRAND + " wird verschrottet");
+    carCount--;
+  }
+
+  // Klassen-Methode
+  public static int getCarCount() {
+    return carCount;
+  }
+
+
 
 
 

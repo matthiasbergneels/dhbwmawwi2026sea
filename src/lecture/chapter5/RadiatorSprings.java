@@ -2,12 +2,16 @@ package lecture.chapter5;
 
 public class RadiatorSprings {
 
-  static void main(String[] args) {
+  static void main(String[] args) throws InterruptedException {
 
-    Car lightningMcQueen = new Car("Rot", "Kachow", 500, "Corvette");
-    Car sally = new Car("Blau", "301PCE", 350, "Porsche");
-    Car hook = new Car("Rusty Braun", "A113", 9990, "Hooker");
+    System.out.println("Anzahl an Autos in Radiator Springs: " + Car.getCarCount());
+
+    Car lightningMcQueen = new Car(Car.COLOR_RED, "Kachow", 500, Car.Brands.CORVETTE);
+    Car sally = new Car(Car.COLOR_BLUE, "301PCE", 350, Car.Brands.PORSCHE);
+    Car hook = new Car(Car.COLOR_RUSTY, "A113", 9990, Car.Brands.HOOKER);
     Car randomCar = new Car();
+
+    System.out.println("Anzahl an Autos in Radiator Springs: " + Car.getCarCount());
 
     //System.out.println("Aktuelle Geschwindigkeit - Lightning McQueen: " + lightningMcQueen.currentSpeed);
 
@@ -28,7 +32,7 @@ public class RadiatorSprings {
 
 
     System.out.println("Lightning McQueen - Farbe: " + lightningMcQueen.getColor());
-    System.out.println("Lightning McQueen - Marke: " + lightningMcQueen.brand);
+    System.out.println("Lightning McQueen - Marke: " + lightningMcQueen.BRAND + " Preisklasse: " + lightningMcQueen.BRAND.getPriceClass());
     System.out.println("Lightning McQueen - Leistung: " + lightningMcQueen.getHp());
     System.out.println("Lightning McQueen - Nummernschild: " + lightningMcQueen.getLicensePlate());
 
@@ -41,15 +45,16 @@ public class RadiatorSprings {
      */
 
     sally.accelerate(90);
+    sally.setColor(Car.COLOR_RED);
 
     System.out.println("Sally - Farbe: " + sally.getColor());
-    System.out.println("Sally - Marke: " + sally.brand);
+    System.out.println("Sally - Marke: " + sally.BRAND + " Preisklasse: " + sally.BRAND.getPriceClass());
     System.out.println("Sally - Leistung: " + sally.getHp());
     System.out.println("Sally - Nummernschild: " + sally.getLicensePlate());
     System.out.println("Sally - Geschwindigkeit: " + sally.getCurrentSpeed());
 
     System.out.println("Hook - Farbe: " + hook.getColor());
-    System.out.println("Hook - Marke: " + hook.brand);
+    System.out.println("Hook - Marke: " + hook.BRAND + " Preisklasse: " + hook.BRAND.getPriceClass());
     System.out.println("Hook - Leistung: " + hook.getHp());
     System.out.println("Hook - Nummernschild: " + hook.getLicensePlate());
     System.out.println("Hook - Geschwindigkeit: " + hook.getCurrentSpeed());
@@ -65,5 +70,31 @@ public class RadiatorSprings {
     System.out.println("Lightning McQueen - Leistung: " + lightningMcQueen.getHp());
 
 
+
+    System.out.println("Anzahl an Autos in Radiator Springs: " + Car.getCarCount());
+
+    new Car();
+    new Car();
+    new Car();
+    new Car();
+    new Car();
+    new Car();
+    new Car();
+    new Car();
+
+    System.gc();
+
+    Thread.sleep(500);
+
+    System.out.println("Anzahl an Autos in Radiator Springs: " + Car.getCarCount());
+
+    sally = null;
+    lightningMcQueen = null;
+    hook = null;
+
+    System.gc();
+    Thread.sleep(500);
+
+    System.out.println("Anzahl an Autos in Radiator Springs: " + Car.getCarCount());
   }
 }
