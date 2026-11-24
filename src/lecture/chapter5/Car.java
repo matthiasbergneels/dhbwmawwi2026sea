@@ -42,6 +42,8 @@ public class Car {
   // Konstruktor
 
   Car(){
+    this(COLOR_GREEN, "YYYYYY", 120, Brands.FIAT);
+    /*
     this.color = "Grün";
     setHp(120);
     this.licensePlate = "YYYYYY";
@@ -49,6 +51,8 @@ public class Car {
 
     this.currentSpeed = 0;
     carCount++;
+
+     */
   }
 
   Car(String color, String licensePlate, int hp, Brands brand){
